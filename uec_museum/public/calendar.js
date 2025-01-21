@@ -1,13 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     const calendarElement = document.getElementById('calendar');
     const now = new Date();
-
     let currentMonth = now.getMonth();
     let currentYear = now.getFullYear();
+    // 静的な予定を定義 (例)
+    const staticEvents = [
+        { title: "会議", date: "2025-01-21" },
+    ];
+
+    // ローカルストレージから動的イベントを読み込む
+    const storedEvents = localStorage.getItem('calendarEvents');
+    const dynamicEvents = storedEvents ? JSON.parse(storedEvents) : [];
+
+    function saveEvents() {
+        // 動的イベントだけを保存（静的イベントは保存不要）
+        localStorage.setItem('calendarEvents', JSON.stringify(dynamicEvents));
+    }
 
     function renderCalendar(month, year) {
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+        const firstDay = new Date(Date.UTC(year, month, 1)).getUTCDay();
+
+        // 静的イベントと動的イベントを結合
+        const events = [...staticEvents, ...dynamicEvents];
 
         let calendarHTML = `
             <div class="calendar-header">
@@ -39,8 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (day > daysInMonth) {
                     calendarHTML += '<td></td>';
                 } else {
-                    const isToday = day === now.getDate() && month === now.getMonth() && year === now.getFullYear();
-                    calendarHTML += `<td class="${isToday ? 'today' : ''}">${day}</td>`;
+                    const formattedDate = new Date(Date.UTC(year, month, day)).toISOString().split('T')[0];
+                    const isToday = day === now.getUTCDate() && month === now.getUTCMonth() && year === now.getUTCFullYear();
+
+                    // イベントを取得
+                    const dayEvents = events.filter(event => event.date === formattedDate);
+                    const eventHTML = dayEvents.map(event => `<div class="event">${event.title}</div>`).join('');
+
+                    calendarHTML += `<td class="${isToday ? 'today' : ''}">
+                        ${day}
+                        ${eventHTML}
+                    </td>`;
                     day++;
                 }
             }
@@ -53,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         calendarElement.innerHTML = calendarHTML;
 
-        // イベントリスナーを追加
         document.getElementById('prev').addEventListener('click', () => {
             currentMonth--;
             if (currentMonth < 0) {
@@ -72,6 +95,27 @@ document.addEventListener('DOMContentLoaded', () => {
             renderCalendar(currentMonth, currentYear);
         });
     }
+
+    document.getElementById('add-event').addEventListener('click', () => {
+        const title = document.getElementById('event-title').value.trim();
+        const date = document.getElementById('event-date').value;
+
+        if (!title || !date) {
+            // エラーメッセージを表示
+            alert('イベント名と日時の両方を入力してください！');
+            return;
+        }
+
+        // 動的イベントを追加
+        dynamicEvents.push({ title, date });
+        // ローカルストレージに保存
+        saveEvents();
+        renderCalendar(currentMonth, currentYear);
+
+        // 入力フォームをリセット
+        document.getElementById('event-title').value = '';
+        document.getElementById('event-date').value = '';
+    });
 
     renderCalendar(currentMonth, currentYear);
 });
