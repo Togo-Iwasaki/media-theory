@@ -3,12 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
     let currentMonth = now.getMonth();
     let currentYear = now.getFullYear();
+    // 静的な予定を定義 (例)
+    const staticEvents = [
+        { title: "会議", date: "2025-01-21" },
+    ];
 
-    const events = []; // イベントを格納する配列
+    // ローカルストレージから動的イベントを読み込む
+    const storedEvents = localStorage.getItem('calendarEvents');
+    const dynamicEvents = storedEvents ? JSON.parse(storedEvents) : [];
+
+    function saveEvents() {
+        // 動的イベントだけを保存（静的イベントは保存不要）
+        localStorage.setItem('calendarEvents', JSON.stringify(dynamicEvents));
+    }
 
     function renderCalendar(month, year) {
         const daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
         const firstDay = new Date(Date.UTC(year, month, 1)).getUTCDay();
+
+        // 静的イベントと動的イベントを結合
+        const events = [...staticEvents, ...dynamicEvents];
 
         let calendarHTML = `
             <div class="calendar-header">
@@ -92,7 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        events.push({ title, date });
+        // 動的イベントを追加
+        dynamicEvents.push({ title, date });
+        // ローカルストレージに保存
+        saveEvents();
         renderCalendar(currentMonth, currentYear);
 
         // 入力フォームをリセット
