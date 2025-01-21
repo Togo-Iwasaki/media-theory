@@ -33,8 +33,6 @@
         }
         .calendar-header button {
             padding: 10px 15px;
-            cursor: pointer;
-            font-size: 16px;
         }
         table {
             border-collapse: collapse;
@@ -49,6 +47,10 @@
         }
         th {
             background-color: #f4f4f4;
+        }
+        td:hover {
+            background-color: #f0f8ff; /* ホバー時に少し明るく */
+            cursor: pointer;
         }
         .today {
             background-color: #ffdd57;
@@ -84,7 +86,9 @@
     </style>
 </head>
 <body>
-    <h1>カレンダー</h1>
+    <div>
+        <h1 class="calendar-title">UEC イベントカレンダー</h1>
+    <div>
     <div id="calendar" class="calendar"></div>
 
     <div id="event-form">
