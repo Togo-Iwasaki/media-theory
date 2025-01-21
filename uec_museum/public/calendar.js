@@ -1,5 +1,3 @@
-//イベントを追加すると行の幅が大きくなってしまっているので、月表示では一定の幅で固定してイベントは縦に積み重ねるように表示する
-//月の日にちをクリックすると日にちのイベントが表示される
 document.addEventListener('DOMContentLoaded', () => {
     const calendarElement = document.getElementById('calendar');
     const now = new Date();

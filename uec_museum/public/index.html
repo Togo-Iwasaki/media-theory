@@ -42,9 +42,9 @@
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 15px;
-            text-align: center;
-            font-size: 18px;
+            width: 14.28%; /* 各セルの幅を一定に保つ */
+            height: 60px; /* 各セルの高さを固定 */
+            vertical-align: top; /* 上揃え */
             position: relative;
         }
         th {
@@ -60,8 +60,14 @@
             border-radius: 4px;
             padding: 2px 4px;
             margin-top: 5px;
-            display: inline-block;
+            display: block; /* イベントを縦に積み重ねる */
         }
+                .event-list {
+            max-height: 80px; /* イベントリストの最大高さを設定 */
+            overflow-y: auto; /* イベントが多い場合にスクロール表示 */
+            padding: 2px;
+        }
+
         #event-form {
             margin: 20px auto;
             background: rgba(255, 255, 255, 0.9);
