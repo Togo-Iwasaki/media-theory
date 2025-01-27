@@ -32,6 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
         header.style.backgroundRepeat = "no-repeat, no-repeat";
     }
 
+    function handleLinkClick(event) {
+        // クリックされた要素がボタンであれば遷移を防止
+        if (event.target.tagName === 'BUTTON') {
+            event.preventDefault(); // ページ遷移を防ぐ
+            return false; // 遷移しない
+        }
+        return true; // ボタン以外の部分がクリックされたら遷移する
+    }
+
     // 静的な予定を定義 (例)
     const staticEvents = [
         { title: "会議", date: "2025-01-21" },
@@ -56,7 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let calendarHTML = `
             <div class="calendar-header">
                 <button id="prev">← 前月</button>
-                <h2>${year}年 ${month + 1}月</h2>
+                    <a href="https://www.museum.uec.ac.jp/" target="_blank">
+                        <h2>${year}年 ${month + 1}月</h2>
+                    </a>
                 <button id="next">次月 →</button>
             </div>
             <table>
@@ -106,7 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         calendarElement.innerHTML = calendarHTML;
 
+
+
         document.getElementById('prev').addEventListener('click', () => {
+            event.stopPropagation();
             currentMonth--;
             if (currentMonth < 0) {
                 currentMonth = 11;
@@ -116,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.getElementById('next').addEventListener('click', () => {
+            event.stopPropagation(); // 親のリンクへの伝播を防ぐ
             currentMonth++;
             if (currentMonth > 11) {
                 currentMonth = 0;

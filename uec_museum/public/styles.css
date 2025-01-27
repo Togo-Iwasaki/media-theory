@@ -53,6 +53,7 @@ body {
         border: 1px solid #e8e8e8;
         transition: all 0.5s;
         box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+        width: 170px;
       }
       
     button:hover {
@@ -60,9 +61,25 @@ body {
       color: #2a5c84;
       box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
     }
+    a {
+        display: flex;
+        justify-content: center;
+        text-decoration: none; /* デフォルトのリンクの下線を消す */
+        width: 100%; /* aタグが全体を囲むように */
+        height: 100%;
+    }
+    h2 {
+        display: flex;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 40px;
+        color: #05ffbc;
+    }
 }
-.blue-text {
+.uec-text {
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 table {
     border-collapse: collapse;
@@ -98,6 +115,23 @@ td:hover {
     max-height: 80px; /* イベントリストの最大高さを設定 */
     overflow-y: auto; /* イベントが多い場合にスクロール表示 */
     padding: 2px;
+}
+.event-button {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #87ceeb;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.5s;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+.event-button:hover {
+    background: white;
+    color: #2a5c84;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
 
 #event-form {
