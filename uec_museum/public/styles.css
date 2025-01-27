@@ -3,7 +3,7 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    background-image: url('museum.jpg');
+    background-image: url('/img/museum.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
