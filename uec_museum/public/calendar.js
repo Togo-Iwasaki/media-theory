@@ -3,6 +3,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
     let currentMonth = now.getMonth();
     let currentYear = now.getFullYear();
+
+    // 月ごとの画像データ
+    const monthImages = {
+        0: "january",   // 1月
+        1: "february",  // 2月
+        2: "march",     // 3月
+        3: "april",     // 4月
+        4: "may",       // 5月
+        5: "june",      // 6月
+        6: "july",      // 7月
+        7: "august",    // 8月
+        8: "september", // 9月
+        9: "october",   // 10月
+        10: "november", // 11月
+        11: "december", // 12月
+    };
+
+    function updateMonthImage() {
+        const header = document.querySelector('.calendar-header');
+        if (!header) return;
+
+        // 月に応じた画像パスを生成
+        const imageUrl = "./img/" + monthImages[currentMonth] + ".jpg";
+        header.style.backgroundImage = `url(${imageUrl})`;
+        header.style.backgroundSize = "cover";
+        header.style.backgroundPosition = "center";
+
+        console.log(currentMonth);
+    }
+
     // 静的な予定を定義 (例)
     const staticEvents = [
         { title: "会議", date: "2025-01-21" },
@@ -94,6 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             renderCalendar(currentMonth, currentYear);
         });
+
+        updateMonthImage(); // 月の画像を更新
     }
 
     document.getElementById('add-event').addEventListener('click', () => {
@@ -119,3 +151,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCalendar(currentMonth, currentYear);
 });
+  
