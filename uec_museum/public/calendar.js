@@ -43,7 +43,126 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 静的な予定を定義 (例)
     const staticEvents = [
-        { title: "会議", date: "2025-01-21" },
+        { title: "冬季休業", date: "2025-01-01", color: "red" },
+        { title: "冬季休業", date: "2025-01-02", color: "red" },
+        { title: "冬季休業", date: "2025-01-03", color: "red" },
+
+        { title: "成人の日", date: "2025-01-13", color: "red" },
+
+        { title: "後学期試験", date: "2025-02-10", color: "blue" },
+        { title: "建国記念日", date: "2025-02-11", color: "red" },
+        { title: "後学期試験", date: "2025-02-11", color: "blue" },
+        { title: "後学期試験", date: "2025-02-12", color: "blue" },
+        { title: "後学期試験", date: "2025-02-13", color: "blue" },
+        { title: "後学期試験", date: "2025-02-14", color: "blue" },
+
+        { title: "春季休業", date: "2025-02-17", color: "red" },
+        { title: "春季休業", date: "2025-02-18", color: "red" },
+        { title: "春季休業", date: "2025-02-19", color: "red" },
+        { title: "春季休業", date: "2025-02-20", color: "red" },
+        { title: "春季休業", date: "2025-02-21", color: "red" },
+        { title: "天皇誕生日", date: "2025-02-23", color: "red" },
+        { title: "振替休日", date: "2025-02-24", color: "red" },
+        { title: "春季休業", date: "2025-02-24", color: "red" },
+        { title: "春季休業", date: "2025-02-25", color: "red" },
+        { title: "春季休業", date: "2025-02-26", color: "red" },
+        { title: "春季休業", date: "2025-02-27", color: "red" },
+        { title: "春季休業", date: "2025-02-28", color: "red" },
+        { title: "春季休業", date: "2025-03-03", color: "red" },
+        { title: "春季休業", date: "2025-03-04", color: "red" },
+        { title: "春季休業", date: "2025-03-05", color: "red" },
+        { title: "春季休業", date: "2025-03-06", color: "red" },
+        { title: "春季休業", date: "2025-03-07", color: "red" },
+        { title: "春季休業", date: "2025-03-10", color: "red" },
+        { title: "春季休業", date: "2025-03-11", color: "red" },
+        { title: "春季休業", date: "2025-03-12", color: "red" },
+        { title: "春季休業", date: "2025-03-13", color: "red" },
+        { title: "春季休業", date: "2025-03-14", color: "red" },
+        { title: "春季休業", date: "2025-03-17", color: "red" },
+        { title: "春季休業", date: "2025-03-18", color: "red" },
+        { title: "春季休業", date: "2025-03-19", color: "red" },
+        { title: "春季休業", date: "2025-03-20", color: "red" },
+        { title: "春分の日", date: "2025-03-20", color: "red" },
+        { title: "春季休業", date: "2025-03-21", color: "red" },
+        { title: "春季休業", date: "2025-03-24", color: "red" },
+        { title: "春季休業", date: "2025-03-25", color: "red" },
+        { title: "春季休業", date: "2025-03-26", color: "red" },
+        { title: "春季休業", date: "2025-03-27", color: "red" },
+        { title: "春季休業", date: "2025-03-28", color: "red" },
+        { title: "春季休業", date: "2025-03-31", color: "red" },
+        { title: "春季休業", date: "2025-04-01", color: "red" },
+        { title: "春季休業", date: "2025-04-02", color: "red" },
+
+        { title: "昭和の日", date: "2025-04-29", color: "red" },
+
+        { title: "憲法記念日", date: "2025-05-03", color: "red" },
+        { title: "みどりの日", date: "2025-05-04", color: "red" },
+        { title: "こどもの日", date: "2025-05-05", color: "red" },
+        { title: "振替休日", date: "2025-05-06", color: "red" },
+
+        { title: "海の日", date: "2025-07-21", color: "red" },
+        { title: "授業あり", date: "2025-07-21", color: "#93df20" },
+
+        { title: "前学期試験", date: "2025-07-30", color: "blue" },
+        { title: "前学期試験", date: "2025-07-31", color: "blue" },
+        { title: "前学期試験", date: "2025-08-01", color: "blue" },
+        { title: "前学期試験", date: "2025-08-04", color: "blue" },
+        { title: "前学期試験", date: "2025-08-05", color: "blue" },
+
+        { title: "夏季休業", date: "2025-08-06", color: "red" },
+        { title: "夏季休業", date: "2025-08-07", color: "red" },
+        { title: "夏季休業", date: "2025-08-08", color: "red" },
+        { title: "夏季休業", date: "2025-08-11", color: "red" },
+        { title: "夏季休業", date: "2025-08-12", color: "red" },
+        { title: "夏季休業", date: "2025-08-13", color: "red" },
+        { title: "夏季休業", date: "2025-08-14", color: "red" },
+        { title: "夏季休業", date: "2025-08-15", color: "red" },
+        { title: "夏季休業", date: "2025-08-18", color: "red" },
+        { title: "夏季休業", date: "2025-08-19", color: "red" },
+        { title: "夏季休業", date: "2025-08-20", color: "red" },
+        { title: "夏季休業", date: "2025-08-21", color: "red" },
+        { title: "夏季休業", date: "2025-08-22", color: "red" },
+        { title: "夏季休業", date: "2025-08-25", color: "red" },
+        { title: "夏季休業", date: "2025-08-26", color: "red" },
+        { title: "夏季休業", date: "2025-08-27", color: "red" },
+        { title: "夏季休業", date: "2025-08-28", color: "red" },
+        { title: "夏季休業", date: "2025-08-29", color: "red" },
+        { title: "夏季休業", date: "2025-09-01", color: "red" },
+        { title: "夏季休業", date: "2025-09-02", color: "red" },
+        { title: "夏季休業", date: "2025-09-03", color: "red" },
+        { title: "夏季休業", date: "2025-09-04", color: "red" },
+        { title: "夏季休業", date: "2025-09-05", color: "red" },
+        { title: "夏季休業", date: "2025-09-08", color: "red" },
+        { title: "夏季休業", date: "2025-09-09", color: "red" },
+        { title: "夏季休業", date: "2025-09-10", color: "red" },
+        { title: "夏季休業", date: "2025-09-11", color: "red" },
+        { title: "夏季休業", date: "2025-09-12", color: "red" },
+        { title: "夏季休業", date: "2025-09-15", color: "red" },
+        { title: "夏季休業", date: "2025-09-16", color: "red" },
+        { title: "夏季休業", date: "2025-09-17", color: "red" },
+        { title: "夏季休業", date: "2025-09-18", color: "red" },
+        { title: "夏季休業", date: "2025-09-19", color: "red" },
+        { title: "夏季休業", date: "2025-09-22", color: "red" },
+        { title: "夏季休業", date: "2025-09-23", color: "red" },
+        { title: "夏季休業", date: "2025-09-24", color: "red" },
+        { title: "夏季休業", date: "2025-09-25", color: "red" },
+        { title: "夏季休業", date: "2025-09-26", color: "red" },
+        { title: "夏季休業", date: "2025-09-29", color: "red" },
+        { title: "夏季休業", date: "2025-09-30", color: "red" },
+
+        { title: "冬季休業", date: "2025-12-26", color: "red" },
+        { title: "冬季休業", date: "2025-12-29", color: "red" },
+        { title: "冬季休業", date: "2025-12-30", color: "red" },
+        { title: "冬季休業", date: "2025-12-31", color: "red" },
+        { title: "冬季休業", date: "2026-01-02", color: "red" },
+        { title: "冬季休業", date: "2026-01-03", color: "red" },
+
+        { title: "後学期試験", date: "2026-02-09", color: "blue" },
+        { title: "後学期試験", date: "2026-02-10", color: "blue" },
+        { title: "後学期試験", date: "2026-02-11", color: "blue" },
+        { title: "後学期試験", date: "2026-02-12", color: "blue" },
+        { title: "後学期試験", date: "2026-02-13", color: "blue" },
+        
     ];
 
     // ローカルストレージから動的イベントを読み込む
@@ -99,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // イベントを取得
                     const dayEvents = events.filter(event => event.date === formattedDate);
-                    const eventHTML = dayEvents.map(event => `<div class="event">${event.title}</div>`).join('');
+                    const eventHTML = dayEvents.map(event => `<div class="event" style="background-color: ${event.color};">${event.title}</div>`).join('');
 
                     calendarHTML += `<td class="${isToday ? 'today' : ''}">
                         ${day}
