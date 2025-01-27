@@ -1,16 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Merriweather", "Noto Serif JP", serif;
     text-align: center;
     margin: 0;
     padding: 0;
-    background-image: url('/img/museum.jpg');
+    /* background-image: url('/img/museum.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+.header {
+    color: white;
+    background: #17288b;
+    text-align: left;
+    padding: 15px 50px;
+    h1 {
+        margin: 0;
+    }
+}
+.main {
+    /* background-color: rgba(41,114,176,.9); */
+    background-color: rgba(41, 114, 176, .9);
+    padding: 70px 0;
+}
 .calendar {
     display: inline-block;
-    margin: 20px;
+    margin: 20px 5px 70px;
     background: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 15px;
@@ -33,14 +49,18 @@ body {
         background: #87ceeb;
         cursor: pointer;
         border: 1px solid #e8e8e8;
-        transition: all 0.3s;
+        transition: all 0.5s;
         box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
       }
       
-      button:active {
-        color: #666;
-        box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
-      }
+    button:hover {
+      background: white;
+      color: #2a5c84;
+      box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+    }
+}
+.blue-text {
+    font-family: Arial, Helvetica, sans-serif;
 }
 table {
     border-collapse: collapse;
@@ -69,10 +89,9 @@ td:hover {
     background-color: #007BFF;
     border-radius: 4px;
     padding: 2px 4px;
-    margin-top: 5px;
     display: block; /* イベントを縦に積み重ねる */
 }
-        .event-list {
+.event-list {
     max-height: 80px; /* イベントリストの最大高さを設定 */
     overflow-y: auto; /* イベントが多い場合にスクロール表示 */
     padding: 2px;

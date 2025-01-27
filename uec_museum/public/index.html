@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div>
-        <h1 class="calendar-title">UEC イベントカレンダー</h1>
-    <div>
-    <div id="calendar" class="calendar"></div>
+    <div class="header">
+        <h1><span class="blue-text">UEC</span> イベントカレンダー</h1>
+    </div>
 
-    <div id="event-form">
-        <h2>イベント追加</h2>
-        <input type="text" id="event-title" placeholder="イベント名" required>
-        <input type="date" id="event-date" required>
-        <button id="add-event">追加</button>
+    <div class="main">
+        <div id="calendar" class="calendar"></div>
+
+        <div id="event-form">
+            <h2>イベント追加</h2>
+            <input type="text" id="event-title" placeholder="イベント名" required>
+            <input type="date" id="event-date" required>
+            <button id="add-event">追加</button>
+        </div>
     </div>
 
     <script src="calendar.js"></script>
