@@ -22,7 +22,7 @@ body {
 .main {
     /* background-color: rgba(41,114,176,.9); */
     background-color: rgba(41, 114, 176, .9);
-    padding: 70px 0;
+    padding: 20px 0;
 }
 .calendar {
     display: inline-block;
@@ -38,9 +38,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-}
-.calendar-header {
+    height: 200px;
+    border-radius: 15px;
+    padding: 0 20px;
+    overflow: hidden;
+
     button {
         color: #090909;
         padding: 0.7em 1.7em;
@@ -65,6 +67,7 @@ body {
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 10px;
 }
 th, td {
     border: 1px solid #ddd;

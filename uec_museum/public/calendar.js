@@ -6,18 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 月ごとの画像データ
     const monthImages = {
-        0: "january",   // 1月
-        1: "february",  // 2月
-        2: "march",     // 3月
-        3: "april",     // 4月
-        4: "may",       // 5月
-        5: "june",      // 6月
-        6: "july",      // 7月
-        7: "august",    // 8月
-        8: "september", // 9月
-        9: "october",   // 10月
-        10: "november", // 11月
-        11: "december", // 12月
+        0: { image: 'january', position: 'bottom', percentage: '50%' },         // 1月
+        1: { image: 'february', position: 'bottom 5%', percentage: '45%' },     // 2月
+        2: { image: 'march', position: 'top 45%', percentage: '25%' },           // 3月
+        3: { image: 'april', position: 'bottom 5%', percentage: '50%' },           // 4月
+        4: { image: 'may', position: 'bottom 30%', percentage: '30%' },             // 5月
+        5: { image: 'june', position: 'bottom 20%', percentage: '40%' },            // 6月
+        6: { image: 'july', position: 'center', percentage: '40%' },            // 7月
+        7: { image: 'august', position: 'center', percentage: '30%' },          // 8月
+        8: { image: 'september', position: 'top 32%', percentage: '25%' },       // 9月
+        9: { image: 'october', position: 'center', percentage: '30%' },         // 10月
+        10: { image: 'november', position: 'center', percentage: '40%' },       // 11月
+        11: { image: 'december', position: 'top 40%', percentage: '40%' }        // 12月
     };
 
     function updateMonthImage() {
@@ -25,12 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!header) return;
 
         // 月に応じた画像パスを生成
-        const imageUrl = "./img/" + monthImages[currentMonth] + ".jpg";
-        header.style.backgroundImage = `url(${imageUrl})`;
-        header.style.backgroundSize = "cover";
-        header.style.backgroundPosition = "center";
-
-        console.log(currentMonth);
+        const imageUrl = "./img/" + monthImages[currentMonth].image + ".jpg";
+        header.style.backgroundImage = `url(${imageUrl}), url('./img/background.jpg')`;;
+        header.style.backgroundSize = `${monthImages[currentMonth].percentage} auto, cover`;
+        header.style.backgroundPosition = `center ${monthImages[currentMonth].position}, center`;
+        header.style.backgroundRepeat = "no-repeat, no-repeat";
     }
 
     // 静的な予定を定義 (例)
