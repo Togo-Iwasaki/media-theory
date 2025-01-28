@@ -1,49 +1,149 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-}
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
 
-.calendar {
-    display: inline-block;
-    margin: 20px;
-    padding: 20px;
-    background-image: url('background.jpg'); /* 背景画像を指定 */
+body {
+    font-family: "Merriweather", "Noto Serif JP", serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    /* background-image: url('/img/museum.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+.header {
+    color: white;
+    background: #17288b;
+    text-align: left;
+    padding: 15px 50px;
+    h1 {
+        margin: 0;
+    }
+}
+.main {
+    /* background-color: rgba(41,114,176,.9); */
+    background-color: rgba(41, 114, 176, .9);
+    padding: 20px 0;
+}
+.calendar {
+    display: inline-block;
+    margin: 20px 5px 70px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0 0 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 900px;
+}
 .calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-}
+    height: 200px;
+    border-radius: 15px;
+    padding: 0 20px;
+    overflow: hidden;
 
-.calendar-header button {
-    padding: 5px 10px;
-    cursor: pointer;
+    button {
+        color: #090909;
+        padding: 0.7em 1.7em;
+        font-size: 18px;
+        border-radius: 0.5em;
+        background: #87ceeb;
+        cursor: pointer;
+        border: 1px solid #e8e8e8;
+        transition: all 0.5s;
+        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+        width: 170px;
+      }
+      
+    button:hover {
+      background: white;
+      color: #2a5c84;
+      box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+    }
+    a {
+        display: flex;
+        justify-content: center;
+        text-decoration: none; /* デフォルトのリンクの下線を消す */
+        width: 100%; /* aタグが全体を囲むように */
+        height: 100%;
+    }
+    h2 {
+        display: flex;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 40px;
+        color: #05ffbc;
+    }
 }
-
+.uec-text {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 10px;
 }
-
 th, td {
     border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    width: 14.28%; /* 各セルの幅を一定に保つ */
+    height: 60px; /* 各セルの高さを固定 */
+    vertical-align: top; /* 上揃え */
+    position: relative;
 }
-
 th {
-    background-color: rgba(240, 240, 240, 0.9);
+    background-color: #f4f4f4;
 }
-
+td:hover {
+    background-color: #f0f8ff; /* ホバー時に少し明るく */
+    cursor: pointer;
+}
 .today {
     background-color: #ffdd57;
+}
+.event {
+    font-size: 14px;
+    color: white;
+    /* background-color: #007BFF; */
+    border-radius: 4px;
+    padding: 2px 4px;
+    display: block; /* イベントを縦に積み重ねる */
+}
+.event-list {
+    max-height: 80px; /* イベントリストの最大高さを設定 */
+    overflow-y: auto; /* イベントが多い場合にスクロール表示 */
+    padding: 2px;
+}
+.event-button {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #87ceeb;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.5s;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+.event-button:hover {
+    background: white;
+    color: #2a5c84;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+#event-form {
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+#event-form input, #event-form button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
 }

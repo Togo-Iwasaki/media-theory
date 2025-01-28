@@ -4,98 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>カレンダー</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-image: url('museum.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .calendar {
-            display: inline-block;
-            margin: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 80%;
-            max-width: 900px;
-        }
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .calendar-header button {
-            padding: 10px 15px;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            width: 14.28%; /* 各セルの幅を一定に保つ */
-            height: 60px; /* 各セルの高さを固定 */
-            vertical-align: top; /* 上揃え */
-            position: relative;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        td:hover {
-            background-color: #f0f8ff; /* ホバー時に少し明るく */
-            cursor: pointer;
-        }
-        .today {
-            background-color: #ffdd57;
-        }
-        .event {
-            font-size: 14px;
-            color: white;
-            background-color: #007BFF;
-            border-radius: 4px;
-            padding: 2px 4px;
-            margin-top: 5px;
-            display: block; /* イベントを縦に積み重ねる */
-        }
-                .event-list {
-            max-height: 80px; /* イベントリストの最大高さを設定 */
-            overflow-y: auto; /* イベントが多い場合にスクロール表示 */
-            padding: 2px;
-        }
-
-        #event-form {
-            margin: 20px auto;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
-        }
-        #event-form input, #event-form button {
-            margin: 5px;
-            padding: 10px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div>
-        <h1 class="calendar-title">UEC イベントカレンダー</h1>
-    <div>
-    <div id="calendar" class="calendar"></div>
+    <div class="header">
+        <h1><span class="uec-text">UEC</span> イベントカレンダー</h1>
+    </div>
 
-    <div id="event-form">
-        <h2>イベント追加</h2>
-        <input type="text" id="event-title" placeholder="イベント名" required>
-        <input type="date" id="event-date" required>
-        <button id="add-event">追加</button>
+    <div class="main">
+        <div id="calendar" class="calendar"></div>
+
+        <div id="event-form">
+            <h2>イベント追加</h2>
+            <input type="text" id="event-title" placeholder="イベント名" required>
+            <input type="date" id="event-date" required>
+            <button id="add-event" class="event-button">追加</button>
+        </div>
     </div>
 
     <script src="calendar.js"></script>
