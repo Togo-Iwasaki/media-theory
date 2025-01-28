@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         2: { image: 'march', position: 'top 45%', percentage: '25%' },           // 3月
         3: { image: 'april', position: 'bottom 5%', percentage: '50%' },           // 4月
         4: { image: 'may', position: 'bottom 30%', percentage: '30%' },             // 5月
-        5: { image: 'june', position: 'bottom 20%', percentage: '40%' },            // 6月
+        5: { image: 'june', position: 'center', percentage: '40%' },            // 6月
         6: { image: 'july', position: 'center', percentage: '40%' },            // 7月
         7: { image: 'august', position: 'center', percentage: '30%' },          // 8月
         8: { image: 'september', position: 'top 32%', percentage: '25%' },       // 9月
